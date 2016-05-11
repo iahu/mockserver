@@ -15,7 +15,6 @@ Options:
   -j, --jsonp [BOOLEAN]  enabled jsonp (Default is true)
   -k, --jsonpcallback [STRING]jsonp callback name (Default is callback)
   -b, --baseURI [STRING] base path of API URI (Default is  )
-  -h, --help             Display help and usage details
 ```
 
 example:
