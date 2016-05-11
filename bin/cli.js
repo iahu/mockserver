@@ -1,18 +1,69 @@
 #!/usr/bin/env node
-var cli = require('cli');
-cli.parse({
-	port: ['p', 'server port', 'number', '8800'],
-	jsonp: ['j', 'enabled jsonp', 'boolean', true],
-	jsonpcallback: ['k', 'jsonp callback name', 'string', 'callback'],
-	baseURI: ['b', 'base path of API URI', 'string', ' ']
-});
+var commandLineArgs = require('command-line-args');
+var cli = commandLineArgs([
+	{
+		name: 'file',
+		alias: 'f',
+		type: String,
+		defaultOption: true
+	},
+	{
+		name: 'port',
+		alias: 'p',
+		// 'server port', 
+		type: Number,
+		defaultValue: 8800
+	},
+	{
+		name: 'cache', 
+		alias: 'c',
+		// 'cache mock template file', 
+		type: String,
+		defaultValue: false
+	},
+	{
+		name: 'jsonp', 
+		alias: 'j',
+		// 'enabled jsonp', 
+		type: String,
+		defaultValue: true
+	},
+	{
+		name: 'jsonpcallback', 
+		alias: 'k',
+		// 'jsonp callback name', 
+		type: String,
+		defaultValue: 'callback'
+	},
+	{
+		name: 'baseURI', 
+		alias: 'b',
+		// 'base path of API URI' 
+		type: String,
+		defaultValue: ''
+	}
+]);
+var options = cli.parse();
+
+if ( options.file === 'false' ) {
+	console.log('[error] argument file is empty');
+	return;
+}
+if ( process.argv.slice(2).length === 0 ) {
+	console.log( cli.getUsage() );
+	return;
+}
 
 var app = require('../app.js');
-
-cli.main(function (args, options) {
-	if ( ! args.length ) {
-		console.log('mock file path is empty');
-		return;
+function stringToBoolean(s) {
+	if ( typeof s === 'string') {
+		return s === 'true' ? true : false;
+	} else {
+		return s;
 	}
-	app(args[0], options);
-});
+}
+
+options.cache = stringToBoolean(options.cache);
+options.jsonp = stringToBoolean(options.jsonp);
+
+app(options);
