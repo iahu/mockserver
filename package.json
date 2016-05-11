@@ -1,0 +1,27 @@
+{
+  "name": "mockserver",
+  "version": "1.0.0",
+  "description": "a mockjson server",
+  "main": "app.js",
+  "bin": {
+    "mockserver": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mockjson",
+    "server"
+  ],
+  "author": "iahu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cli": "^0.11.2",
+    "compression": "^1.6.1",
+    "connect": "^3.4.1",
+    "mockjs": "^1.0.1-beta2",
+    "mockjson": "0.0.3",
+    "static-config": "^2.2.0"
+  }
+}
