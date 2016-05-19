@@ -7,7 +7,7 @@ a mockjson(p) server, based on mock.js
 ### How to use
 ```log
 Usage:
-  mockserver [OPTIONS] file
+  mockserver [OPTIONS] FILE
 
   Options
     -f, --file string
