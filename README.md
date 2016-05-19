@@ -7,14 +7,15 @@ a mockjson(p) server, based on mock.js
 ### How to use
 ```log
 Usage:
-  cli.js [OPTIONS] [ARGS]
+  mockserver [OPTIONS] file
 
-Options:
-  -p, --port [NUMBER]    server port (Default is 8800)
-  -c, --cache [BOOLEAN]  cache mock template file (Default is false)
-  -j, --jsonp [BOOLEAN]  enabled jsonp (Default is true)
-  -k, --jsonpcallback [STRING]jsonp callback name (Default is callback)
-  -b, --baseURI [STRING] base path of API URI (Default is  )
+  Options
+    -f, --file string
+    -p, --port number
+    -c, --cache string
+    -j, --no-jsonp string
+    -k, --jsonpcallback string
+    -b, --baseURI string
 ```
 
 example:

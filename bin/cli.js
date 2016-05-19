@@ -22,11 +22,11 @@ var cli = commandLineArgs([
 		defaultValue: false
 	},
 	{
-		name: 'jsonp', 
+		name: 'no-jsonp', 
 		alias: 'j',
 		// 'enabled jsonp', 
 		type: String,
-		defaultValue: true
+		defaultValue: false
 	},
 	{
 		name: 'jsonpcallback', 
@@ -55,15 +55,4 @@ if ( process.argv.slice(2).length === 0 ) {
 }
 
 var app = require('../app.js');
-function stringToBoolean(s) {
-	if ( typeof s === 'string') {
-		return s === 'true' ? true : false;
-	} else {
-		return s;
-	}
-}
-
-options.cache = stringToBoolean(options.cache);
-options.jsonp = stringToBoolean(options.jsonp);
-
 app(options);
